@@ -1,5 +1,7 @@
-#1
+#2
 def transforma_base(questoes):
+    if questoes == []:
+        return {}
     lista_questoes = {'facil':[],'medio':[],'dificil':[]}
     for q in questoes:
         if q['nivel'] == 'facil':
