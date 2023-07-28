@@ -1,6 +1,7 @@
+import sorteia_questao
 def sorteia_questao_inedita(questoes,nivel,questoes_sorteadas):
-    x = 0 #sorteia 
+    x = sorteia_questao(questoes,nivel)
     for q in questoes_sorteadas:
         if q == x:
-            #sorteia dnv
+            x = sorteia_questao(questoes,nivel)#sorteia dnv
     return x
