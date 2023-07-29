@@ -198,6 +198,7 @@ usados = []
 pontos = 0
 premiacao = 0
 continuar = ''
+quest = 0
 i = 0
 ###LOOP DO JOGO###
 jogando = True
@@ -206,7 +207,7 @@ while jogando:
     i = 0
     if faceis > 0:
 
-        quest = sorteia_questao_inedita(questions,faceis,usados)
+        quest = sorteia_questao_inedita(questions,'facil',usados)
         print(questao_para_texto(quest))
         resposta = input('RESPOSTA:')
         if resposta == "ajuda":
@@ -228,7 +229,7 @@ while jogando:
         faceis -= 1
     
     elif medias > 0:
-        quest = sorteia_questao_inedita(questions,medias,usados)
+        quest = sorteia_questao_inedita(questions,'medio',usados)
         print(questao_para_texto(quest))
         resposta = input('RESPOSTA:')
         if resposta == "ajuda":
@@ -248,7 +249,7 @@ while jogando:
             jogando = False
         medias -= 1
     elif dificeis > 0:
-        quest = sorteia_questao_inedita(questions,dificeis,usados)
+        quest = sorteia_questao_inedita(questions,'dificil',usados)
         print(questao_para_texto(quest))
         resposta = input('RESPOSTA:')
         if resposta == "ajuda":
