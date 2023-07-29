@@ -13,17 +13,7 @@ import gera_ajuda
 from random import *
 
 
-
-
-
-
-
-
-
-
-
-
-###### PRÉ-JOGO ######
+#### PRÉ-JOGO ####
 
 
 nome = input(str("Olá! Você está na Fortuna DesSoft e terá a oportunidade de enriquecer!\n\nQual seu nome? "))
@@ -36,23 +26,6 @@ input("Aperte ENTER para continuar... ")
 print("\n\nO jogo já vai começar! Lá vem a primeira questão!")
 print("\n\nVamos começar com questões do nível FACIL!")
 input("Aperte ENTER para continuar... ")
-
-
-pulos = 3
-ajudas = 2
-
-if resposta == "pular":
-    pulos -= 1
-
-if resposta == "ajuda":
-    ajudas -= 1
-
-if pulos == 0 and resposta == "pular":
-    print("você não tem mais ajudas")
-
-if ajudas == 0 and resposta == "ajuda":
-    print("você não tem mais pulos")
-
 
 questions = [{'titulo': 'Qual o resultado da operação 57 + 32?',
           'nivel': 'facil',
