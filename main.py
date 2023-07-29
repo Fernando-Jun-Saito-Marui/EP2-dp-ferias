@@ -10,7 +10,6 @@ import sorteia_questao
 import sorteia_questao_inedita
 import questao_para_texto
 import gera_ajuda
-from random import *
 
 
 #### PRÉ-JOGO ####
