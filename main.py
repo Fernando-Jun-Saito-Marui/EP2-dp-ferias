@@ -212,7 +212,7 @@ while jogando:
         print(questao_para_texto(quest))
         resposta = input('RESPOSTA:')
         if resposta == "ajuda":
-            ajudas -= 1
+            ajuda -= 1
             print(gera_ajuda(quest))
             resposta = input('RESPOSTA:')
         elif resposta == "pular":
@@ -226,7 +226,6 @@ while jogando:
             pontos += 1
         elif resposta != quest['correta'] and resposta != 'ajuda' and resposta != 'pular':
             print('Que pena, você errou e vai sair sem nada! :(')
-            continuar = input('Deseja continuar ou parar o jogo? [continuar/parar]')
             jogando = False
         faceis -= 1
     
@@ -235,7 +234,7 @@ while jogando:
         print(questao_para_texto(quest))
         resposta = input('RESPOSTA:')
         if resposta == "ajuda":
-            ajudas -= 1
+            ajuda -= 1
             print(gera_ajuda(quest))
             resposta = input('RESPOSTA:')
         elif resposta == "pular":
@@ -255,7 +254,7 @@ while jogando:
         print(questao_para_texto(quest))
         resposta = input('RESPOSTA:')
         if resposta == "ajuda":
-            ajudas -= 1
+            ajuda -= 1
             print(gera_ajuda(quest))
             resposta = input('RESPOSTA:')
         elif resposta == "pular":
