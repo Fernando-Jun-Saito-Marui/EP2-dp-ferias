@@ -223,37 +223,105 @@ ajuda = 2
 pulos = 3
 faceis = 3
 medias = 3
-dificeis = 4
+dificeis = 3
 usados = []
 pontos = 0
+premiacao = 0
+continuar = ''
+i = 0
 ###LOOP DO JOGO###
 jogando = True
 
 while jogando:
-
+    i = 0
     if faceis > 0:
+
         quest = sorteia_questao_inedita(questions,faceis,usados)
-        print(gera_ajuda(quest))
+        print(questao_para_texto(quest))
         resposta = input('RESPOSTA:')
+        if resposta == "ajuda":
+            ajudas -= 1
+            print(gera_ajuda(quest))
+            resposta = input('RESPOSTA:')
+        elif resposta == "pular":
+            if pulos <= 0:
+                print('Você não tem mais pulos :(')
+                print(questao_para_texto(quest))
+                resposta = input('RESPOSTA:')
+            else:
+                pulos -= 1
         if resposta == quest['correta']:
             pontos += 1
+        elif resposta != quest['correta'] and resposta != 'ajuda' and resposta != 'pular':
+            print('Que pena, você errou e vai sair sem nada! :(')
+            continuar = input('Deseja continuar ou parar o jogo? [continuar/parar]')
+            jogando = False
         faceis -= 1
+    
     elif medias > 0:
         quest = sorteia_questao_inedita(questions,medias,usados)
-        print(gera_ajuda(quest))
+        print(questao_para_texto(quest))
         resposta = input('RESPOSTA:')
+        if resposta == "ajuda":
+            ajudas -= 1
+            print(gera_ajuda(quest))
+            resposta = input('RESPOSTA:')
+        elif resposta == "pular":
+            if pulos <= 0:
+                print('Você não tem mais pulos :(')
+                resposta = input('RESPOSTA:')
+            else:
+                pulos -= 1
         if resposta == quest['correta']:
             pontos += 1
+        elif resposta != quest['correta'] and resposta != 'ajuda' and resposta != 'pular':
+            print('Que pena, você errou e vai sair sem nada! :(')
+            jogando = False
         medias -= 1
     elif dificeis > 0:
         quest = sorteia_questao_inedita(questions,dificeis,usados)
-        print(gera_ajuda(quest))
+        print(questao_para_texto(quest))
         resposta = input('RESPOSTA:')
+        if resposta == "ajuda":
+            ajudas -= 1
+            print(gera_ajuda(quest))
+            resposta = input('RESPOSTA:')
+        elif resposta == "pular":
+            if pulos <= 0:
+                print('Você não tem mais pulos :(')
+                resposta = input('RESPOSTA:')
+            else:
+                pulos -= 1
         if resposta == quest['correta']:
             pontos += 1
+        elif resposta != quest['correta'] and resposta != 'ajuda' and resposta != 'pular':
+            print('Que pena, você errou e vai sair sem nada! :(')
+            jogando = False
         dificeis -= 1
-
+    continuar = input('Deseja continuar? [continuar/parar]')
+    if continuar == 'parar':
+        faceis = 0
+        medias = 0
+        dificeis = 0
     if faceis == 0 and medias == 0 and dificeis == 0:
-
+        if pontos == 1:
+            premiacao = 1000
+        elif pontos == 2:
+            premiacao = 5000
+        elif pontos == 3:
+            premiacao = 10000
+        elif pontos == 4:
+            premiacao = 30000
+        elif pontos == 5:
+            premiacao = 50000
+        elif pontos == 6:
+            premiacao = 100000
+        elif pontos == 7:
+            premiacao = 300000
+        elif pontos == 8:
+            premiacao = 500000
+        elif pontos == 9:
+            premiacao = 1000000
         print('Bom jogo, espero que tenha gostado da experiência')
+        print(f'PARABÉNS!!!!!!! sua premiação foi de {premiacao}!')
         jogando = False
