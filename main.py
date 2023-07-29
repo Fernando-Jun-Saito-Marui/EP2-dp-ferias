@@ -187,8 +187,6 @@ questions = [{'titulo': 'Qual o resultado da operação 57 + 32?',
           'correta': 'D'}
         ]
 
-lista_questoes = transforma_base_certo(questions)
-lista_questoes = valida_questoes(questions)
 
 ###VARIÁVEIS###
 ajuda = 2
